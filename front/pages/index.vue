@@ -1,6 +1,6 @@
 <template>
   <v-card
-    max-width="1200"
+    max-width="auto"
     class="mx-auto"
   >
     <v-system-bar
@@ -18,40 +18,19 @@
       </v-btn>
     </v-system-bar>
       <v-spacer></v-spacer>
-
       <v-btn icon>
-        <v-icon>mdi-magnify</v-icon>
       </v-btn>
-
     <v-container>
       <v-row dense>
-        <v-col cols="12">
-          <v-card
-            color="#385F73"
-            dark
-          >
-            <v-card-title class="text-h5">
-              Unlimited music now
-            </v-card-title>
-
-            <v-card-subtitle>Listen to your favorite artists and albums whenever and wherever, online and offline.</v-card-subtitle>
-
-            <v-card-actions>
-              <v-btn text>
-                Listen Now
-              </v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-col>
-
         <v-col
           v-for="(item, i) in items"
           :key="i"
           cols="12"
         >
           <v-card
+            height="200"
             :color="item.color"
-            dark
+            white
           >
             <div class="d-flex flex-no-wrap justify-space-between">
               <div>
@@ -109,11 +88,18 @@ export default Vue.extend({
     data: () => {
         return {
           items: [
-            {
-          color: '#1F7087',
+          {
+          color: '#FFFFFF',
           src: 'https://cdn.vuetifyjs.com/images/cards/foster.jpg',
           title: 'Supermodel',
           artist: 'Foster the People',
+          to: '/register/index'
+          },
+          {
+          color: '#952175',
+          src: 'https://cdn.vuetifyjs.com/images/cards/halcyon.png',
+          title: 'Halcyon Days',
+          artist: 'Ellie Goulding',
           },
           {
           color: '#952175',
