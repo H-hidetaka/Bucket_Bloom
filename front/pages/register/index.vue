@@ -4,7 +4,6 @@
     <v-row
       justify="center"
       align-content="center"
-
     >
       <v-col
         cols=12
@@ -21,31 +20,49 @@
           <v-card-title>
             <h3 class="display-1">登録情報入力</h3>
           </v-card-title>
-              <v-text-field prepend-icon="mdi-email" label="メールアドレス" />
+              <v-text-field
+              prepend-icon="mdi-email"
+              label="メールアドレス"
+              v-model="email"
+              />
             <v-form>
               <v-text-field
               :type="showPassword ? 'text' : 'password'"
               prepend-icon="mdi-lock" :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
               @click:append="showPassword = !showPassword"
-              label="パスワード" />
+              label="パスワード"
+              v-model="password"
+              />
             </v-form>
               <v-text-field
               :type="showPassword_confirmation ? 'text' : 'password'"
               @click:append="showPassword_confirmation = !showPassword_confirmation"
-              prepend-icon="mdi-lock" :append-icon="showPassword_confirmation ? 'mdi-eye' : 'mdi-eye-off'" label="パスワード再入力" />
-            <v-text-field prepend-icon="mdi-account-circle"  label="ユーザー名" />
-            <v-text-field prepend-icon="mdi-account-circle"  label="フルネーム" />
-            <v-text-field prepend-icon="mdi-lock"  label="フルネーム＜カタカナ＞" />
-          <v-card-actions
-          >
+              prepend-icon="mdi-lock" :append-icon="showPassword_confirmation ? 'mdi-eye' : 'mdi-eye-off'"
+              label="パスワード再入力"
+              v-model="password_confirmation"
+              />
+              <v-text-field
+              prepend-icon="mdi-account-circle"
+              label="ユーザー名"
+              v-model="name"
+              />
+              <v-text-field
+              prepend-icon="mdi-account-circle"
+              label="フルネーム"
+              v-model="full_name"
+              />
+              <v-text-field prepend-icon="mdi-lock"  label="フルネーム＜カタカナ＞"
+              v-model="full_name_kana"
+              />
+              <v-card-actions
+              >
           <v-container>
               <v-btn
                   text
                   class="lime lighten-4"
                   width="200"
                   color="black accent-1"
-                  @click="next"
-                  to="../login"
+                  @click="submit"
                 >会員登録
               </v-btn>
             </v-container>
@@ -64,6 +81,12 @@ export default Vue.extend({
         return {
           showPassword: false ,
           showPassword_confirmation: false ,
+          email:'',
+          password:'',
+          password_confirmation: '',
+          name:'',
+          full_name:'',
+          full_name_kana:'',
           items: [
           {
           color: '#FFFFFF',
@@ -84,9 +107,14 @@ export default Vue.extend({
           title: 'Halcyon Days',
           artist: 'Ellie Goulding',
           },
-      ],
+          ],
         };
     },
+      methods:{
+        submit(){
+          console.log(this.email,this.password,this.name,this.full_name,this.full_name_kana)
+        }
+      },
 });
 </script>
 
