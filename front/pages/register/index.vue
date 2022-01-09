@@ -24,10 +24,15 @@
               <v-text-field prepend-icon="mdi-email" label="メールアドレス" />
             <v-form>
               <v-text-field
-              v-bind:type="showPassword ? 'text' : 'password'"
-              prepend-icon="mdi-lock" append-icon="mdi-eye-off" label="パスワード" />
+              :type="showPassword ? 'text' : 'password'"
+              prepend-icon="mdi-lock" :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
+              @click:append="showPassword = !showPassword"
+              label="パスワード" />
             </v-form>
-              <v-text-field prepend-icon="mdi-lock" append-icon="mdi-eye-off" label="パスワード再入力" />
+              <v-text-field
+              :type="showPassword_confirmation ? 'text' : 'password'"
+              @click:append="showPassword_confirmation = !showPassword_confirmation"
+              prepend-icon="mdi-lock" :append-icon="showPassword_confirmation ? 'mdi-eye' : 'mdi-eye-off'" label="パスワード再入力" />
             <v-text-field prepend-icon="mdi-account-circle"  label="ユーザー名" />
             <v-text-field prepend-icon="mdi-account-circle"  label="フルネーム" />
             <v-text-field prepend-icon="mdi-lock"  label="フルネーム＜カタカナ＞" />
@@ -58,6 +63,7 @@ export default Vue.extend({
     data: () => {
         return {
           showPassword: false ,
+          showPassword_confirmation: false ,
           items: [
           {
           color: '#FFFFFF',
