@@ -14,6 +14,7 @@
         light
         block
       >
+      <!-- 検索用フォーム機能を作成 -->
       <v-icon>mdi-magnify</v-icon>
       </v-btn>
     </v-system-bar>
