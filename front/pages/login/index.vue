@@ -4,7 +4,6 @@
     <v-row
       justify="center"
       align-content="center"
-
     >
       <v-col
         cols=12
@@ -13,31 +12,45 @@
         lg=10
         xl=7
         >
-  <v-card
-    max-width="1200"
-    shaped
-    color="#FDFDF0"
-  >
-    <v-card-title>
-      <h3 class="display-1">ログイン</h3>
-    </v-card-title>
-        <v-text-field prepend-icon="mdi-email" label="メールアドレス" />
-      <v-form>
-        <v-text-field prepend-icon="mdi-lock" append-icon="mdi-eye-off" label="パスワード" />
-      </v-form>
-    <v-container>
-        <v-btn
-            text
-            class="lime lighten-4"
-            width="200"
-            color="black accent-1"
-            @click="next"
-            to="../login"
-          >ログイン
-        </v-btn>
-      </v-container>
-    <!-- </v-card-actions> -->
-  </v-card>
+        <v-card
+          max-width="1200px"
+          shaped
+          color="#FDFDF0"
+        >
+          <v-card-title>
+            <h3
+            class="display-1"
+
+            >ログイン</h3>
+          </v-card-title>
+              <v-text-field
+              prepend-icon="mdi-email"
+              label="メールアドレス"
+              v-model="email"
+              />
+            <v-form>
+              <v-text-field
+              :type="showPassword ? 'text' : 'password'"
+              prepend-icon="mdi-lock" :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
+              @click:append="showPassword = !showPassword"
+              label="パスワード"
+              v-model="password"
+              />
+            </v-form>
+              <v-card-actions
+              >
+          <v-container>
+              <v-btn
+                  text
+                  class="lime lighten-4"
+                  width="200"
+                  color="black accent-1"
+                  @click="submit"
+                >ログイン
+              </v-btn>
+            </v-container>
+          </v-card-actions>
+        </v-card>
       </v-col>
     </v-row>
   </v-container>
@@ -49,6 +62,14 @@ import Vue from 'vue';
 export default Vue.extend({
     data: () => {
         return {
+          showPassword: false ,
+          showPassword_confirmation: false ,
+          email:'',
+          password:'',
+          password_confirmation: '',
+          name:'',
+          full_name:'',
+          full_name_kana:'',
           items: [
           {
           color: '#FFFFFF',
@@ -69,9 +90,14 @@ export default Vue.extend({
           title: 'Halcyon Days',
           artist: 'Ellie Goulding',
           },
-      ],
+          ],
         };
     },
+      methods:{
+        submit(){
+          console.log(this.email,this.password,this.name,this.full_name,this.full_name_kana)
+        }
+      },
 });
 </script>
 
