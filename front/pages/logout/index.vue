@@ -20,36 +20,20 @@
           <v-card-title>
             <h3
             class="display-1"
-
-            >ログイン</h3>
+            >ログアウト</h3>
           </v-card-title>
-              <v-text-field
-              prepend-icon="mdi-email"
-              label="メールアドレス"
-              v-model="email"
-              />
-            <v-form>
-              <v-text-field
-              :type="showPassword ? 'text' : 'password'"
-              prepend-icon="mdi-lock" :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
-              @click:append="showPassword = !showPassword"
-              label="パスワード"
-              v-model="password"
-              />
-            </v-form>
-              <v-card-actions
+            <v-card-text>
+              <div class="text-h6 font-weight-light"
+              >Bucket bloomから完全にログアウトしました。再度ログインする場合は、
+              以下からログインしてください。</div>
+              <nuxt-link
+              to="/login"
+              fontSize="120px"
+              >ログイン画面</nuxt-link>
+
+            </v-card-text>
+          <v-card-actions
               >
-          <v-container>
-              <v-btn
-                  text
-                  class="lime lighten-4"
-                  width="200"
-                  color="black accent-1"
-                  @click="submit"
-                  to="/logout"
-                >ログイン
-              </v-btn>
-            </v-container>
           </v-card-actions>
         </v-card>
       </v-col>
@@ -103,5 +87,4 @@ export default Vue.extend({
 </script>
 
 <style scoped>
-
 </style>
