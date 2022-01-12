@@ -48,10 +48,18 @@ export default {
   modules: [
       '@nuxtjs/axios',
       '@nuxtjs/proxy',
-  ],    proxy: {
-        '/api': {
-            target: 'http://localhost:3000/'
+  ],
+
+  axios: {
+    proxy:true,
+  },
+  proxy: {
+    '/api': {
+        target: 'http://localhost:8080/',
+        pathRewrite: {
+          '^/api': '/api'
         }
+        },
     },
 
 

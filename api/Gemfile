@@ -22,6 +22,7 @@ gem 'sorcery'
 gem 'rubocop'
 gem 'better_errors'
 gem 'binding_of_caller'
+gem 'rack-cors'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
