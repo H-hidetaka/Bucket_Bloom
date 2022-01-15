@@ -31,6 +31,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    '~/plugins/axios.js'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -48,10 +49,12 @@ export default {
   modules: [
       '@nuxtjs/axios',
       '@nuxtjs/proxy',
+      '@nuxtjs/auth',
   ],
 
   axios: {
     proxy: true,
+    baseURL: "http://localhost:3000"
   },
   proxy: {
     '/api': {
@@ -59,9 +62,8 @@ export default {
         pathRewrite: {
           '^/api': '/api'
         }
-        },
+      },
     },
-
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
@@ -82,6 +84,25 @@ export default {
     }
   },
 
+  // auth: {
+  //   redirect: {
+  //     login: '/login', //middleware:authを設定したURLにアクセスがあった場合の、リダイレクト先。
+  //     logout: '/', //ログアウト後のリダイレクト先
+  //     callback: false,
+  //     home: '/' ///ログイン後のリダイレクト先。
+  //   },
+  //   strategies: {
+  //     local: {
+  //       endpoints: {
+  //         //ログイン処理に関する設定
+  //         login: { url: '/api/auth/sign_in', method: 'post',propertyName: 'access_token'},
+  //         //ログアウト処理に関する設定
+  //         logout: { url: '/api/auth/sign_out', method: 'delete' },
+  //         //ログイン時にユーザー情報を保存するか。
+  //         user: false
+  //       },
+  //     }
+  //   },
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
   }
