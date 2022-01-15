@@ -1,0 +1,81 @@
+Skip to content
+tyoshikawa1106/Gemfile_Memo
+Last active 4 months ago • Report abuse
+ Code
+ Revisions 2
+ Stars 2
+Gemfileの意味をメモ
+Gemfile_Memo
+source 'https://rubygems.org'
+ruby '2.2.2' (対象のRubyバージョン)
+
+gem 'rails', '4.2.4'  (対象のRailsバージョン)
+gem 'bootstrap-sass', '~> 3.3.5' (Bootstrapが使える)
+gem 'sprockets', '~> 3.3.3' (Railsで依存関係の管理やコンパイルなどをやってくれる)
+
+(開発環境とテスト環境のみ対象)
+group :development, :test do
+  gem 'sqlite3', '1.3.10' (sqlite3をインストール)
+  gem 'rspec-rails', '2.13.1' (RSpecをインストール)
+end
+
+(テスト環境のみインストール)
+group :test do
+  gem 'selenium-webdriver', '2.35.1' (テスト時に役立つ)
+  gem 'capybara', '2.1.0' (テスト時に役立つ)
+end
+
+gem 'sass-rails', '5.0.3' (Sassが使える)
+gem 'uglifier', '2.7.2' (UglifyJS2というJSライブラリが使える)
+gem 'coffee-rails', '4.1.0' (CoffeeScriptが使える)
+gem 'jquery-rails', '4.0.4' (jQueryが使える)
+gem 'turbolinks', '2.5.3' (ページ遷移をAjaxに置き換え)
+gem 'jbuilder', '2.3.1'　（JSON API関係？）
+
+# 追加系ここから
+gem 'omniauth', '~> 1.2.1' (OAuth認証が使える)
+gem 'omniauth-twitter', '~> 1.0.1' (OAuth認証が使える)
+
+gem 'kaminari', '~> 0.16.3' (ページネーションが使える)
+gem 'kaminari-bootstrap', '~> 3.0.1' (kaminariでBootstrap風スタイルが使える)
+
+gem 'ransack', '~> 1.7.0' (検索機能が使える)
+gem 'carrierwave', '~> 0.10.0' (ファイルのアップロードが使える)
+gem 'mini_magick', '~> 3.7.0' (画像ファイルのリサイズが使える)
+
+gem 'hirb', group: [:development, :test] (Railsコンソールを見やすく)
+gem 'hirb-unicode', group: [:development, :test] (hirb関係)
+
+gem 'better_errors', group: [:development, :test] (エラー画面をわかりやすく)
+gem 'binding_of_caller', group: [:development, :test]  (better_errors関係)
+
+gem 'rails-erd', group: [:development, :test] (ER図が出せる...試せてない)
+gem 'newrelic_rpm' (NewRelicで必要)
+
+gem 'simplecov', :require => false, :group => :test (テストカバレッジを表示できる)
+# 追加系ここまで
+
+(分からなかったけど必要)
+group :doc do
+  gem 'sdoc', '0.3.20', require: false
+end
+
+(本番環境でインストール)
+group :production do
+  gem 'pg', '0.15.1' (Postgres DBが使える。Herokuで必要。)
+  gem 'rails_12factor', '0.0.2' (Herokuで必要)
+end
+
+Leave a comment
+© 2022 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About

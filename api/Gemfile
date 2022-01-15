@@ -14,26 +14,30 @@ gem 'puma', '~> 5.0'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
+
+# better_errorsとbinding_of_callerを一緒に使うことで、ブラウザ上でエラー確認ができる
 gem 'better_errors'
 gem 'binding_of_caller'
-gem 'bcrypt', '~> 3.1.7'
 
-# Reduces boot times through caching; required in config/boot.rb
+# Reduces boot times through caching; required in config/boot.rb　rails起動時間の短縮
 gem 'bootsnap', '>= 1.4.4', require: false
 
-# Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
+# bcryptは１、パスワードのハッシュ化を行う。２、ソルトを追加し、ランダムな文字列を入力したパスワードにくっつけて暗号化３、ストレッチングを行い、ハッシュ関数を数千回通して、解読者に嫌がらせを行う。DB追記時にpassword_digestが必要。
+gem 'bcrypt', '~> 3.1.7'
+# CSRFは掲示板や問い合わせフォームなどを処理するwebアプリケーションが、本来拒否すべき他サイトからのリクエストを受信して処理することで、それを防ぐのがrack-cors
 gem 'rack-cors'
+gem 'devise', '~> 4.8', '>= 4.8.1'
+gem 'devise_token_auth',  '1.1.5'
+gem 'devise-i18n',        '1.9.4'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'faker'
   gem 'factory_bot_rails'
-  # 変更しないでください
   gem 'rubocop'
   gem 'rubocop-rails'
   gem 'rubocop-checkstyle_formatter'
@@ -43,7 +47,6 @@ end
 
 group :development do
   gem 'listen', '~> 3.3'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem "rubocop-rspec", require: false
 end
