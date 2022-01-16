@@ -36,6 +36,23 @@
               label="パスワード"
               v-model="password"
               />
+              <!-- <v-button
+              v-if="!this.$auth.loggedIn"
+              variant="primary"
+              to="/signup">
+              サインアップ</v-button>
+              <v-button v-if="!this.$auth.loggedIn"
+              variant="info"
+              to="/login">
+              ログイン</v-button>
+              <v-button v-if="this.$auth.loggedIn"
+              variant="success"
+              to="/update">
+              アカウント情報変更</v-button>
+              <v-button v-if="this.$auth.loggedIn"
+              variant="danger"
+              @click="logout">
+              ログアウト</v-button> -->
             </v-form>
               <v-card-actions
               >
@@ -93,13 +110,24 @@ export default Vue.extend({
           },
           ],
         };
-    },
+      },
       methods:{
         submit(){
           console.log(this.email,this.password,this.name,this.full_name,this.full_name_kana)
+        },
+        async logout() {
+          await this.$auth.logout()
+          .then(
+            ()=>{
+              localStorage.removeItem("access-token")
+              localStorage.removeItem("client")
+              localStorage.removeItem("uid")
+              localStorage.removeItem("token-type")
+            }
+          )
         }
       },
-});
+    });
 </script>
 
 <style scoped>

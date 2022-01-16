@@ -19,6 +19,9 @@
         >
           <v-card-title>
             <h3 class="display-1">登録情報入力</h3>
+
+            <Notification :message="error" v-if="error" class="mb-4 pb-3" />
+
           </v-card-title>
               <v-text-field
               prepend-icon="mdi-email"
@@ -45,14 +48,6 @@
               prepend-icon="mdi-account-circle"
               label="ユーザー名"
               v-model="name"
-              />
-              <v-text-field
-              prepend-icon="mdi-account-circle"
-              label="フルネーム"
-              v-model="full_name"
-              />
-              <v-text-field prepend-icon="mdi-lock"  label="フルネーム＜カタカナ＞"
-              v-model="full_name_kana"
               />
               <v-card-actions
               >
@@ -85,35 +80,40 @@ export default Vue.extend({
           password:'',
           password_confirmation: '',
           name:'',
-          full_name:'',
-          full_name_kana:'',
+          error: null,
           items: [
-          {
-          color: '#FFFFFF',
-          src: 'https://cdn.vuetifyjs.com/images/cards/foster.jpg',
-          title: 'Supermodel',
-          artist: 'Foster the People',
-          to: '/register/index'
-          },
-          {
-          color: '#952175',
-          src: 'https://cdn.vuetifyjs.com/images/cards/halcyon.png',
-          title: 'Halcyon Days',
-          artist: 'Ellie Goulding',
-          },
-          {
-          color: '#952175',
-          src: 'https://cdn.vuetifyjs.com/images/cards/halcyon.png',
-          title: 'Halcyon Days',
-          artist: 'Ellie Goulding',
-          },
+          // {
+          // color: '#FFFFFF',
+          // src: 'https://cdn.vuetifyjs.com/images/cards/foster.jpg',
+          // title: 'Supermodel',
+          // artist: 'Foster the People',
+          // to: '/register/index'
+          // },
           ],
         };
-    },
+      },
       methods:{
+        async signup() {
+          try{
+            await this.$axios.post('/api/auth',{
+              name: this.name,
+              email: this.email,
+              password: this.password,
+              password_confirmation: this.password_confirmation
+            })
+            await this.$auth.loginWith('local', {
+              data: {
+                password: this.password,
+                email: this.email
+              },
+            })
+          }catch(e){
+            this.error = e.response.data.errors.full_messages
+          }
+        },
         submit(){
-          console.log(this.email,this.password,this.name,this.full_name,this.full_name_kana)
-        }
+        console.log(this.email,this.password,this.password_confirmation,this.name)
+      }
       },
 });
 </script>

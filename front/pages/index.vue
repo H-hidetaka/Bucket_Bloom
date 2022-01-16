@@ -89,10 +89,10 @@
                     </v-avatar>
                   </div>
                 </v-card>
-        </v-col>
-      </v-row>
+              </v-col>
+            </v-row>
           </v-container>
-        </v-card>
+          </v-card>
         </v-col>
       </v-row>
   </v-container>
