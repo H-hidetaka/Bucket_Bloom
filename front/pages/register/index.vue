@@ -28,7 +28,7 @@
               label="メールアドレス"
               v-model="email"
               />
-            <v-form>
+            <v-form @submit.prevent="signup">
               <v-text-field
               :type="showPassword ? 'text' : 'password'"
               prepend-icon="mdi-lock" :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"

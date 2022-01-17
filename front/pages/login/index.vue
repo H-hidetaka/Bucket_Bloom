@@ -88,27 +88,15 @@ export default Vue.extend({
           name:'',
           full_name:'',
           full_name_kana:'',
-          items: [
-          {
-          color: '#FFFFFF',
-          src: 'https://cdn.vuetifyjs.com/images/cards/foster.jpg',
-          title: 'Supermodel',
-          artist: 'Foster the People',
-          to: '/register/index'
-          },
-          {
-          color: '#952175',
-          src: 'https://cdn.vuetifyjs.com/images/cards/halcyon.png',
-          title: 'Halcyon Days',
-          artist: 'Ellie Goulding',
-          },
-          {
-          color: '#952175',
-          src: 'https://cdn.vuetifyjs.com/images/cards/halcyon.png',
-          title: 'Halcyon Days',
-          artist: 'Ellie Goulding',
-          },
-          ],
+          // items: [
+          // {
+          // color: '#FFFFFF',
+          // src: 'https://cdn.vuetifyjs.com/images/cards/foster.jpg',
+          // title: 'Supermodel',
+          // artist: 'Foster the People',
+          // to: '/register/index'
+          // },
+          // ],
         };
       },
       methods:{
