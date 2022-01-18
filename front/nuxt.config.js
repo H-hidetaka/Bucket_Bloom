@@ -96,7 +96,8 @@ export default {
       local: {
         endpoints: {
           //ログイン処理に関する設定
-          login: { url: '/api/auth/sign_in', method: 'post',propertyName: 'access_token'},
+          // login: { url: '/api/auth/sign_in', method: 'post',propertyName: 'access_token'},
+          login: { url: 'api/auth/sign_in', method: 'post',propertyName: 'access_token'},
           //ログアウト処理に関する設定
           logout: { url: '/api/auth/sign_out', method: 'delete' },
           //ログイン時にユーザー情報を保存するか。

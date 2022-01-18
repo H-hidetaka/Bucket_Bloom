@@ -70,18 +70,19 @@
 
 <script>
 import Vue from 'vue';
+// import { axios } from '@nuxtjs/axios'
 
 export default Vue.extend({
     data: () => {
         return {
-          showPassword: false ,
-          showPassword_confirmation: false ,
+          showPassword: false,
+          showPassword_confirmation: false,
           name:'',
           email:'',
           password:'',
           password_confirmation: '',
           error: null,
-          items: [
+          // items: [
           // {
           // color: '#FFFFFF',
           // src: 'https://cdn.vuetifyjs.com/images/cards/foster.jpg',
@@ -89,7 +90,7 @@ export default Vue.extend({
           // artist: 'Foster the People',
           // to: '/register/index'
           // },
-          ],
+          // ],
         };
       },
       methods:{
@@ -108,7 +109,7 @@ export default Vue.extend({
               },
             })
           }catch(e){
-            this.error = e.response.data.errors.full_messages
+            // this.error = e.response.data.errors.full_messages
           }
         },
         submit(){
