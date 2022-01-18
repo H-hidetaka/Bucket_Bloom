@@ -62,7 +62,7 @@
                   class="lime lighten-4"
                   width="200"
                   color="black accent-1"
-                  @click="submit"
+                  @click="signup"
                   to="/logout"
                 >ログイン
               </v-btn>

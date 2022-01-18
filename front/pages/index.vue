@@ -23,12 +23,16 @@
           >
             <v-spacer></v-spacer>
             <v-btn
-              width="800"
               light
               block
+              cols=12
+              sm=10
+              md=10
+              lg=10
+              xl=7
             >
             <!-- 検索用フォーム機能を作成 -->
-            <v-icon>mdi-magnify</v-icon>
+            <!-- <v-icon>mdi-magnify</v-icon> -->
             </v-btn>
           </v-system-bar>
             <v-spacer></v-spacer>
@@ -111,6 +115,36 @@ export default Vue.extend({
           title: 'Supermodel',
           artist: 'Foster the People',
           to: '/register/index'
+          },
+          {
+          color: '#952175',
+          src: 'https://cdn.vuetifyjs.com/images/cards/halcyon.png',
+          title: 'Halcyon Days',
+          artist: 'Ellie Goulding',
+          },
+          {
+          color: '#952175',
+          src: 'https://cdn.vuetifyjs.com/images/cards/halcyon.png',
+          title: 'Halcyon Days',
+          artist: 'Ellie Goulding',
+          },
+          {
+          color: '#952175',
+          src: 'https://cdn.vuetifyjs.com/images/cards/halcyon.png',
+          title: 'Halcyon Days',
+          artist: 'Ellie Goulding',
+          },
+          {
+          color: '#952175',
+          src: 'https://cdn.vuetifyjs.com/images/cards/halcyon.png',
+          title: 'Halcyon Days',
+          artist: 'Ellie Goulding',
+          },
+          {
+          color: '#952175',
+          src: 'https://cdn.vuetifyjs.com/images/cards/halcyon.png',
+          title: 'Halcyon Days',
+          artist: 'Ellie Goulding',
           },
           {
           color: '#952175',

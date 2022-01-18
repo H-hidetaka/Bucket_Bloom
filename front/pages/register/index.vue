@@ -57,7 +57,7 @@
                   class="lime lighten-4"
                   width="200"
                   color="black accent-1"
-                  @click="submit"
+                  @click="signup"
                 >会員登録
               </v-btn>
             </v-container>
@@ -68,7 +68,7 @@
   </v-container>
 </template>
 
-<script lang="ts">
+<script>
 import Vue from 'vue';
 
 export default Vue.extend({
@@ -76,10 +76,10 @@ export default Vue.extend({
         return {
           showPassword: false ,
           showPassword_confirmation: false ,
+          name:'',
           email:'',
           password:'',
           password_confirmation: '',
-          name:'',
           error: null,
           items: [
           // {
