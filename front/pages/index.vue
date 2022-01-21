@@ -7,96 +7,90 @@
       >
         <v-col
           cols=12
-          sm=10
-          md=10
-          lg=10
+          sm=11
+          md=11
+          lg=11
           xl=7
           >
-        <v-card
-          max-width="auto"
-          class="mx-auto"
-        >
-          <v-system-bar
-            color="orange darken-2"
-            dark
-            height="60"
-          >
-            <v-spacer></v-spacer>
-            <v-btn
-              light
-              block
-              cols=12
-              sm=10
-              md=10
-              lg=10
-              xl=7
-            >
-            <!-- 検索用フォーム機能を作成 -->
-            <!-- <v-icon>mdi-magnify</v-icon> -->
-            </v-btn>
-          </v-system-bar>
-            <v-spacer></v-spacer>
-            <v-btn icon>
-            </v-btn>
-          <v-container>
-            <v-row dense>
-              <v-col
-                v-for="(item, i) in items"
-                :key="i"
-                cols="12"
+            <v-card
+                class="mx-auto"
+                max-width="2000"
               >
-                <v-card
-                  height="200"
-                  :color="item.color"
-                  white
+                <v-img
+                max-height="2400"
+                max-width="2400"
+                src="images/laptop1.webp"
+              ></v-img>
+                <!-- <v-img
+                  src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
+                  height="200px"
+                ></v-img> -->
+
+              <v-card-title>
+                Bucket Bloom
+                <!-- to="/inspire" -->
+              </v-card-title>
+              <v-card-subtitle>
+                人生に悩んだり迷っている人に、 気軽に取り組め、それまでぼんやりしていた自分の思いを可視化できるようにし、 それを元に人生について考える些細なきっかけを与えるwebサービスです。
+              </v-card-subtitle>
+              <v-row>
+                <v-col
+                cols=12
+                sm=11
+                md=11
+                lg=11
+                xl=7
+                align="right"
                 >
-                  <div class="d-flex flex-no-wrap justify-space-between">
-                    <div>
-                      <v-card-title
-                        class="text-h5"
-                        v-text="item.title"
-                      ></v-card-title>
+                <v-btn
+                  raised
+                  color="primary"
+                  to="/inspire"
+                  rounded
+                >
+                スタート
+                </v-btn>
+                </v-col>
+              </v-row>
 
-                      <v-card-subtitle v-text="item.artist"></v-card-subtitle>
+              <v-card-actions>
+                <v-btn
+                  color="orange lighten-2"
+                  text
+                  @click="show = !show"
+                >
+                  もっと詳しく！
+                </v-btn>
 
-                      <v-card-actions>
-                        <v-btn
-                          v-if="item.artist === 'Ellie Goulding'"
-                          class="ml-2 mt-3"
-                          fab
-                          icon
-                          height="40px"
-                          right
-                          width="40px"
-                        >
-                          <v-icon>mdi-play</v-icon>
-                        </v-btn>
+                <v-spacer></v-spacer>
 
-                        <v-btn
-                          v-else
-                          class="ml-2 mt-5"
-                          outlined
-                          rounded
-                          small
-                        >
-                          START RADIO
-                        </v-btn>
-                      </v-card-actions>
-                    </div>
+                <v-btn
+                  icon
+                  @click="show = !show"
+                >
+                  <v-icon>{{ show ? 'mdi-chevron-up' : 'mdi-chevron-down' }}</v-icon>
+                </v-btn>
+              </v-card-actions>
 
-                    <v-avatar
-                      class="ma-3"
-                      size="125"
-                      tile
-                    >
-                      <v-img :src="item.src"></v-img>
-                    </v-avatar>
-                  </div>
-                </v-card>
-              </v-col>
-            </v-row>
-          </v-container>
-          </v-card>
+              <v-expand-transition>
+                <div v-show="show">
+                  <v-divider></v-divider>
+
+                  <v-card-text>
+                    このアプリはtodoリストにコメント機能をつけ、
+                    <br>他のユーザーからも可視化できるようにしています。
+                    </br>
+                    <br>人生の目標を他のユーザーと共有することで、モチベーション管理をしやすくなります。
+                    </br>
+                  </v-card-text>
+                </div>
+              </v-expand-transition>
+            </v-card>
+                          <!-- <v-img
+                          max-height="2400"
+                          max-width="2400"
+                          src="images/laptop1.webp"
+                        ></v-img> -->
         </v-col>
       </v-row>
   </v-container>
@@ -108,57 +102,7 @@ import Vue from 'vue';
 export default Vue.extend({
     data: () => {
         return {
-          items: [
-          {
-          color: '#FFFFFF',
-          src: 'https://cdn.vuetifyjs.com/images/cards/foster.jpg',
-          title: 'Supermodel',
-          artist: 'Foster the People',
-          to: '/register/index'
-          },
-          {
-          color: '#952175',
-          src: 'https://cdn.vuetifyjs.com/images/cards/halcyon.png',
-          title: 'Halcyon Days',
-          artist: 'Ellie Goulding',
-          },
-          {
-          color: '#952175',
-          src: 'https://cdn.vuetifyjs.com/images/cards/halcyon.png',
-          title: 'Halcyon Days',
-          artist: 'Ellie Goulding',
-          },
-          {
-          color: '#952175',
-          src: 'https://cdn.vuetifyjs.com/images/cards/halcyon.png',
-          title: 'Halcyon Days',
-          artist: 'Ellie Goulding',
-          },
-          {
-          color: '#952175',
-          src: 'https://cdn.vuetifyjs.com/images/cards/halcyon.png',
-          title: 'Halcyon Days',
-          artist: 'Ellie Goulding',
-          },
-          {
-          color: '#952175',
-          src: 'https://cdn.vuetifyjs.com/images/cards/halcyon.png',
-          title: 'Halcyon Days',
-          artist: 'Ellie Goulding',
-          },
-          {
-          color: '#952175',
-          src: 'https://cdn.vuetifyjs.com/images/cards/halcyon.png',
-          title: 'Halcyon Days',
-          artist: 'Ellie Goulding',
-          },
-          {
-          color: '#952175',
-          src: 'https://cdn.vuetifyjs.com/images/cards/halcyon.png',
-          title: 'Halcyon Days',
-          artist: 'Ellie Goulding',
-          },
-      ],
+          show: false,
         };
     },
 });

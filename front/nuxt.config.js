@@ -51,6 +51,7 @@ export default {
       '@nuxtjs/axios',
       '@nuxtjs/proxy',
       '@nuxtjs/auth',
+      '@nuxtjs/vuetify',
   ],
 
   axios: {
