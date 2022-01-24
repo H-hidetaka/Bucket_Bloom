@@ -13,28 +13,13 @@
           xl=7
           >
         <v-card
-          max-width="auto"
+          width="1800"
           class="mx-auto"
+          height="1800"
         >
-          <v-system-bar
-            color="orange darken-2"
-            dark
-            height="60"
-          >
             <v-spacer></v-spacer>
-            <v-btn
-              light
-              block
-              cols=12
-              sm=10
-              md=10
-              lg=10
-              xl=7
-            >
             <!-- 検索用フォーム機能を作成 -->
             <!-- <v-icon>mdi-magnify</v-icon> -->
-            </v-btn>
-          </v-system-bar>
             <v-spacer></v-spacer>
             <v-btn icon>
             </v-btn>
@@ -46,7 +31,7 @@
                 cols="12"
               >
                 <v-card
-                  height="200"
+                  height="600"
                   :color="item.color"
                   white
                 >
