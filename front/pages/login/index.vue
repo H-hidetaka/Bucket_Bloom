@@ -17,18 +17,20 @@
           shaped
           color="#FDFDF0"
         >
+          <Notification :message="error" v-if="error" class="mb-4 pb-3" />
           <v-card-title>
             <h3
             class="display-1"
-
             >ログイン</h3>
+
+
           </v-card-title>
               <v-text-field
               prepend-icon="mdi-email"
               label="メールアドレス"
               v-model="email"
               />
-            <v-form>
+            <v-form @submit.prevent="login">
               <v-text-field
               :type="showPassword ? 'text' : 'password'"
               prepend-icon="mdi-lock" :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
@@ -62,8 +64,7 @@
                   class="lime lighten-4"
                   width="200"
                   color="black accent-1"
-                  @click="signup"
-                  to="/logout"
+                  @click="login"
                 >ログイン
               </v-btn>
             </v-container>
@@ -77,18 +78,18 @@
 <script lang="ts">
 import Vue from 'vue';
 
+interface login {
+  auth: string
+}
 
 export default Vue.extend({
     data: () => {
         return {
           showPassword: false ,
-          showPassword_confirmation: false ,
           email:'',
           password:'',
-          password_confirmation: '',
           name:'',
-          full_name:'',
-          full_name_kana:'',
+          error: null,
           // items: [
           // {
           // color: '#FFFFFF',
@@ -102,16 +103,20 @@ export default Vue.extend({
       },
       methods:{
         submit(){
-          console.log(this.email,this.password,this.name,this.full_name,this.full_name_kana)
+          console.log(this.email,this.password,this.name)
         },
-        async logout() {
-          await this.$auth.logout()
+        async login() {
+          await this.$auth.loginWith<loginData>('local', {
+            data: {
+              password: this.password,
+              email: this.email
+            }
+          })
           .then(
-            ()=>{
-              localStorage.removeItem("access-token")
-              localStorage.removeItem("client")
-              localStorage.removeItem("uid")
-              localStorage.removeItem("token-type")
+            (response) => {
+            },
+            (error) => {
+              this.error = error.response.data.errors
             }
           )
         }

@@ -1,16 +1,19 @@
 Rails.application.routes.draw do
     devise_for :users
     namespace :api do
-      # namespace :v1 do
+      namespace :v1 do
       mount_devise_token_auth_for 'User', at: 'auth'
+      resources :session
       # end
+      end
+      resources :session
     end
   end
-#   namespace :api do
-#     namespace :v1 do
-#       resources :users do
-#         collection do
-#           get :me
+  # namespace :api do
+  #   namespace :v1 do
+  #     resources :users do
+  #       collection do
+  #         get :me
 #         end
 #       end
 #       resources :session_users

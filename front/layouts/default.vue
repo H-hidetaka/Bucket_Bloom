@@ -49,7 +49,7 @@
       :absolute="!fixed"
       app
     >
-      <span>&copy;typingX {{ new Date().getFullYear() }}  </span>
+      <span>&copy;Bucket Bloom {{ new Date().getFullYear() }}  </span>
       <v-btn
         color="black"
         nuxt
@@ -78,6 +78,7 @@ export default {
             clipped: false,
             drawer: false,
             fixed: false,
+            profile: "",
             items: [
                 {
                     icon: 'mdi-apps',

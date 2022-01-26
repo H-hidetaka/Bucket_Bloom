@@ -96,7 +96,7 @@ export default Vue.extend({
       methods: {
         async signup() {
           try{
-            await this.$axios.post('/api/auth',{
+            await this.$axios.post('/api/v1/auth',{
                 name: this.name,
                 email: this.email,
                 password: this.password,
@@ -112,9 +112,6 @@ export default Vue.extend({
             this.error = e.response.data.errors.full_messages
           }
         },
-        submit(){
-        console.log(this.email,this.password,this.password_confirmation,this.name)
-      }
       },
 });
 </script>
