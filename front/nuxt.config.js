@@ -89,7 +89,7 @@ export default {
   auth: {
     redirect: {
       login: '/login', //middleware:authを設定したURLにアクセスがあった場合の、リダイレクト先。
-      logout: '/', //ログアウト後のリダイレクト先
+      logout: '/logout', //ログアウト後のリダイレクト先
       callback: false,
       home: '/inspire' ///ログイン後のリダイレクト先。
     },

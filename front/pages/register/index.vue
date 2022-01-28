@@ -106,6 +106,7 @@ export default Vue.extend({
               data: {
                 password: this.password,
                 email: this.email
+
               },
             })
           }catch(e){

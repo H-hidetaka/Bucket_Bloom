@@ -23,7 +23,6 @@
             class="display-1"
             >ログイン</h3>
 
-
           </v-card-title>
               <v-text-field
               prepend-icon="mdi-email"
@@ -90,15 +89,6 @@ export default Vue.extend({
           password:'',
           name:'',
           error: null,
-          // items: [
-          // {
-          // color: '#FFFFFF',
-          // src: 'https://cdn.vuetifyjs.com/images/cards/foster.jpg',
-          // title: 'Supermodel',
-          // artist: 'Foster the People',
-          // to: '/register/index'
-          // },
-          // ],
         };
       },
       methods:{
@@ -120,7 +110,7 @@ export default Vue.extend({
             }
           )
         }
-      },
+      }
     });
 </script>
 
